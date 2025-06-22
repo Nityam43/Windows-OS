@@ -1,0 +1,387 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%;
+}
+
+.container .main {
+  height: 93.6vh;
+  width: 100vw;
+  background-image: url("photos/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.container .main .main-note {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.container .main .main-note .sticky-notes {
+  display: flex;
+  justify-content: end;
+}
+.container .main .main-note .sticky-notes form {
+  background-color: #eee;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 24px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.container .main .main-note .sticky-notes form h1 {
+  font-size: 2rem;
+}
+.container .main .main-note .sticky-notes form input,
+.container .main .main-note .sticky-notes form button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.container .main .main-note .sticky-notes form input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.container .main .main-note .sticky-notes form input::-webkit-color-swatch {
+  border-radius: 50%;
+}
+.container .main .main-note .sticky-notes #list .sticky-note {
+  background-color: #333;
+  width: 28rem;
+  min-height: 28rem;
+  border-top: 30px solid;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2666666667);
+  padding: 10px;
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  cursor: grab;
+}
+.container .main .main-note .sticky-notes #list .sticky-note textarea {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #f1f1f1;
+  font-size: 2rem;
+  font-family: sans-serif;
+  padding-top: 5px;
+}
+.container .main .main-note .sticky-notes #list .sticky-note .close {
+  position: absolute;
+  top: -32px;
+  right: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: cursive;
+}
+.container .main .main-note .sticky-notes #list .sticky-note h3 {
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  font-size: 1.8rem;
+  font-family: cursive;
+}
+.container .main .folder {
+  height: 70%;
+  width: 50%;
+  background-color: #1c1c1c;
+  position: absolute;
+  left: 45%;
+  top: 30%;
+  transform: translate(-45%, -30%);
+  transition: all ease 0.2s;
+}
+.container .main .folder .folder-nav {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 0.7rem;
+  height: 4rem;
+  background-color: #202020;
+  padding: 1rem;
+}
+.container .main .folder .folder-nav * {
+  color: white;
+}
+.container .main .folder .folder-nav *:hover {
+  background-color: #2c2b2b;
+  border-radius: 0.5rem;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.container .main .folder .folder-nav .line {
+  padding: 1rem 0.5rem;
+}
+.container .main .folder .folder-nav .line-in {
+  border: 1px solid white;
+  width: 1.3rem;
+}
+.container .main .folder .folder-nav :nth-child(2) {
+  font-size: 1.7rem;
+}
+.container .main .folder .folder-nav :nth-child(3) {
+  font-size: 2.5rem;
+}
+.container .main .folder .folder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  padding: 2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  text-align: center;
+}
+.container .main .folder .folder-inner img {
+  width: 48px;
+  height: 48px;
+}
+.container .main .folder .folder-inner h2 {
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 400;
+  margin: 0;
+}
+.container .main .folder .folder-inner:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+.container .main .folder.hidden {
+  display: none;
+}
+.container .main .folder.maximized {
+  width: 100%;
+  height: 100%;
+}
+.container .main .chrome {
+  height: 70%;
+  width: 50%;
+  background-color: #1c1c1c;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -35%);
+  transition: all ease 0.2s;
+}
+.container .main .chrome.hidden {
+  display: none;
+}
+.container .main .chrome.maximized {
+  width: 100%;
+  height: 100%;
+}
+.container .main .chrome .chrome-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  background-color: #202020;
+  padding: 0 1rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-left img {
+  height: 2.6rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-left span {
+  margin-top: 0.3rem;
+  color: white;
+  font-size: 1.9rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right .line {
+  padding: 1rem 0.5rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right .line .line-in {
+  border: 1px solid white;
+  width: 1.3rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right i {
+  color: white;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right i:nth-child(2) {
+  font-size: 1.7rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right i:nth-child(3) {
+  font-size: 2.5rem;
+}
+.container .main .chrome .chrome-nav .chrome-nav-right *:hover {
+  background-color: #2c2b2b;
+  border-radius: 0.5rem;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.container .main .chrome .chrome-inner {
+  height: 100%;
+  width: 100%;
+  background-color: #3c3c3c;
+  position: relative;
+}
+.container .main .chrome .chrome-inner .chrome-search {
+  position: absolute;
+  text-align: center;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+}
+.container .main .chrome .chrome-inner .chrome-search h1 {
+  font-size: 10rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+.container .main .chrome .chrome-inner .chrome-search input {
+  padding: 1.2rem;
+  width: 30vw;
+  border-radius: 10rem;
+  outline: none;
+  font-size: 1.5rem;
+}
+.container .main .note {
+  height: 70%;
+  width: 50%;
+  background-color: #1c1c1c;
+  position: absolute;
+  left: 55%;
+  top: 40%;
+  transform: translate(-55%, -40%);
+  transition: all ease 0.2s;
+}
+.container .main .note.hidden {
+  display: none;
+}
+.container .main .note.maximized {
+  width: 100%;
+  height: 100%;
+}
+.container .main .note .note-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  background-color: #202020;
+  padding: 0 1rem;
+}
+.container .main .note .note-nav .note-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.container .main .note .note-nav .note-nav-left img {
+  height: 2.6rem;
+}
+.container .main .note .note-nav .note-nav-left span {
+  margin-top: 0.3rem;
+  color: white;
+  font-size: 1.9rem;
+}
+.container .main .note .note-nav .note-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.container .main .note .note-nav .note-nav-right .line {
+  padding: 1rem 0.5rem;
+}
+.container .main .note .note-nav .note-nav-right .line .line-in {
+  border: 1px solid white;
+  width: 1.3rem;
+}
+.container .main .note .note-nav .note-nav-right i {
+  color: white;
+}
+.container .main .note .note-nav .note-nav-right i:nth-child(2) {
+  font-size: 1.7rem;
+}
+.container .main .note .note-nav .note-nav-right i:nth-child(3) {
+  font-size: 2.5rem;
+}
+.container .main .note .note-nav .note-nav-right *:hover {
+  background-color: #2c2b2b;
+  border-radius: 0.5rem;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.container .main .note .note-inner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.container .main .note .note-inner textarea {
+  height: 100%;
+  width: 100%;
+  background-color: #2f2f2f;
+  color: #ffffff;
+  font-size: 1.4rem;
+  padding: 1.2rem;
+  border: none;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+.container .main .note .note-inner textarea::-moz-placeholder {
+  color: #bbbbbb;
+  font-style: italic;
+}
+.container .main .note .note-inner textarea::placeholder {
+  color: #bbbbbb;
+  font-style: italic;
+}
+.container .main .note .note-inner textarea:focus {
+  background-color: #333333;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+.container .taskbar {
+  height: 6.5vh;
+  width: 100vw;
+  background-color: #1c1c1c;
+  bottom: 0%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+.container .taskbar img {
+  transition: all 0.2s ease;
+  height: 3.3rem;
+}
+.container .taskbar img:hover {
+  background-color: #2c2b2b;
+  border-radius: 0.5rem;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

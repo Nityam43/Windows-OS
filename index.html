@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+
+            <div class="main-note">
+                <div class="sticky-notes">
+                    <form action="">
+                        <h1>Sticky Notes</h1>
+                        <input type="color" id="color" value="#e6b905">
+                        <button type="button" id="createBtn">+</button>
+                    </form>
+                    <div id="list">
+                    </div>
+                </div>
+            </div>
+
+            <div class="folder hidden">
+                <div class="folder-nav">
+                    <div class="line" id="minimizeBtn">
+                        <div class="line-in"></div>
+                    </div>
+
+                    <i class="ri-square-line" id="maximizeBtn"></i>
+                    <i class="ri-close-line" id="closeBtn"></i>
+                </div>
+                <div class="folder-inner">
+                    <img src="photos/folder.png" alt="">
+                    <h2>New Folder</h2>
+                </div>
+            </div>
+
+            <div class="chrome hidden">
+                <div class="chrome-nav">
+                    <div class="chrome-nav-left">
+                        <img src="photos/chrome.png" alt="">
+                        <span>New Tab</span>
+                    </div>
+                    <div class="chrome-nav-right">
+                        <div class="line" id="chromeMinimizeBtn">
+                            <div class="line-in"></div>
+                        </div>
+                        <i class="ri-square-line" id="chromeMaximizeBtn"></i>
+                        <i class="ri-close-line" id="chromeCloseBtn"></i>
+                    </div>
+                </div>
+                <div class="chrome-inner">
+                    <div class="chrome-search">
+                        <h1>Google</h1>
+                        <input type="text" placeholder="Search Google or type a URL">
+                    </div>
+                </div>
+            </div>
+
+            <div class="note hidden">
+                <div class="note-nav">
+                    <div class="note-nav-left">
+                        <img src="photos/notepad.png" alt="">
+                        <span>Untitled</span>
+                    </div>
+                    <div class="note-nav-right">
+                        <div class="line" id="noteMinimizeBtn">
+                            <div class="line-in"></div>
+                        </div>
+                        <i class="ri-square-line" id="noteMaximizeBtn"></i>
+                        <i class="ri-close-line" id="noteCloseBtn"></i>
+                    </div>
+                </div>
+                <div class="note-inner">
+                    <textarea placeholder="Start typing..."></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="taskbar">
+            <img src="photos/window_icon.png" alt="">
+            <img src="photos/folder.png" id="showFolder" alt="">
+            <img src="photos/chrome.png" id="showChrome" alt="">
+            <img src="photos/notepad.png" id="showNote" alt="">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

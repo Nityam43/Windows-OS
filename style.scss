@@ -1,0 +1,447 @@
+$pri: #1c1c1c;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%;
+}
+
+.container {
+  .main {
+    height: calc(100vh - 6.4vh);
+    width: 100vw;
+    background-image: url("photos/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .main-note {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+
+      .sticky-notes {
+        display: flex;
+        justify-content: end;
+
+        form {
+          background-color: #eee;
+          width: max-content;
+          padding: 5px;
+          margin: 10px;
+          border-radius: 24px;
+          gap: 10px;
+          display: flex;
+          align-items: center;
+          flex-direction: row-reverse;
+
+          h1 {
+            font-size: 2rem;
+          }
+
+          input,
+          button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            font-size: 2.5rem;
+            cursor: pointer;
+          }
+
+          input::-webkit-color-swatch-wrapper {
+            padding: 0;
+          }
+          input::-webkit-color-swatch {
+            border-radius: 50%;
+          }
+        }
+
+        #list .sticky-note {
+          background-color: #333;
+          width: 28rem;
+          min-height: 28rem;
+          border-top: 30px solid;
+          border-radius: 10px;
+          box-shadow: 0 20px 50px #0004;
+          padding: 10px;
+          position: absolute;
+          top: 80px;
+          left: 80px;
+          cursor: grab;
+        }
+
+        #list .sticky-note textarea {
+          all: unset;
+          display: block;
+          width: 100%;
+          height: 100%;
+          color: #f1f1f1;
+          font-size: 2rem;
+          font-family: sans-serif;
+          padding-top: 5px;
+        }
+
+        #list .sticky-note .close {
+          position: absolute;
+          top: -32px;
+          right: 10px;
+          font-size: 2rem;
+          font-weight: bold;
+          cursor: pointer;
+          font-family: cursive;
+        }
+
+        #list .sticky-note h3 {
+          position: absolute;
+          top: -30px;
+          left: 10px;
+          font-size: 1.8rem;
+          font-family: cursive;
+        }
+      }
+    }
+
+    .folder {
+      height: 70%;
+      width: 50%;
+      background-color: $pri;
+      position: absolute;
+      left: 45%;
+      top: 30%;
+      transform: translate(-45%, -30%);
+      transition: all ease 0.2s;
+
+      .folder-nav {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 0.7rem;
+        height: 4rem;
+        background-color: #202020;
+        padding: 1rem;
+
+        * {
+          color: white;
+        }
+
+        *:hover {
+          background-color: #2c2b2b;
+          border-radius: 0.5rem;
+          transform: scale(1.1);
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+        }
+
+        .line {
+          padding: 1rem 0.5rem;
+        }
+
+        .line-in {
+          border: 1px solid white;
+          width: 1.3rem;
+        }
+
+        :nth-child(2) {
+          font-size: 1.7rem;
+        }
+
+        :nth-child(3) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .folder-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.6rem;
+        padding: 2rem;
+        width: fit-content;
+        cursor: pointer;
+        text-align: center;
+
+        img {
+          width: 48px;
+          height: 48px;
+        }
+
+        h2 {
+          font-size: 1.4rem;
+          color: white;
+          font-weight: 400;
+          margin: 0;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 0.5rem;
+        }
+      }
+    }
+
+    .folder.hidden {
+      display: none;
+    }
+
+    .folder.maximized {
+      width: 100%;
+      height: 100%;
+    }
+
+    .chrome {
+      height: 70%;
+      width: 50%;
+      background-color: $pri;
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      transform: translate(-50%, -35%);
+      transition: all ease 0.2s;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.maximized {
+        width: 100%;
+        height: 100%;
+      }
+
+      .chrome-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4rem;
+        background-color: #202020;
+        padding: 0 1rem;
+
+        .chrome-nav-left {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+
+          img {
+            height: 2.6rem;
+          }
+
+          span {
+            margin-top: 0.3rem;
+            color: white;
+            font-size: 1.9rem;
+          }
+        }
+
+        .chrome-nav-right {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+
+          .line {
+            padding: 1rem 0.5rem;
+
+            .line-in {
+              border: 1px solid white;
+              width: 1.3rem;
+            }
+          }
+
+          i {
+            color: white;
+
+            &:nth-child(2) {
+              font-size: 1.7rem;
+            }
+
+            &:nth-child(3) {
+              font-size: 2.5rem;
+            }
+          }
+
+          *:hover {
+            background-color: #2c2b2b;
+            border-radius: 0.5rem;
+            transform: scale(1.1);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .chrome-inner {
+        height: 100%;
+        width: 100%;
+        background-color: #3c3c3c;
+        position: relative;
+
+        .chrome-search {
+          position: absolute;
+          text-align: center;
+          top: 35%;
+          left: 50%;
+          transform: translate(-50%, -35%);
+
+          h1 {
+            font-size: 10rem;
+            color: white;
+            margin-bottom: 2rem;
+          }
+
+          input {
+            padding: 1.2rem;
+            width: 30vw;
+            border-radius: 10rem;
+            outline: none;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .note {
+      height: 70%;
+      width: 50%;
+      background-color: $pri;
+      position: absolute;
+      left: 55%;
+      top: 40%;
+      transform: translate(-55%, -40%);
+      transition: all ease 0.2s;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.maximized {
+        width: 100%;
+        height: 100%;
+      }
+
+      .note-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4rem;
+        background-color: #202020;
+        padding: 0 1rem;
+
+        .note-nav-left {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+
+          img {
+            height: 2.6rem;
+          }
+
+          span {
+            margin-top: 0.3rem;
+            color: white;
+            font-size: 1.9rem;
+          }
+        }
+
+        .note-nav-right {
+          display: flex;
+          align-items: center;
+          gap: 0.7rem;
+
+          .line {
+            padding: 1rem 0.5rem;
+
+            .line-in {
+              border: 1px solid white;
+              width: 1.3rem;
+            }
+          }
+
+          i {
+            color: white;
+
+            &:nth-child(2) {
+              font-size: 1.7rem;
+            }
+
+            &:nth-child(3) {
+              font-size: 2.5rem;
+            }
+          }
+
+          *:hover {
+            background-color: #2c2b2b;
+            border-radius: 0.5rem;
+            transform: scale(1.1);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .note-inner {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        textarea {
+          height: 100%;
+          width: 100%;
+          background-color: #2f2f2f;
+          color: #ffffff;
+          font-size: 1.4rem;
+          padding: 1.2rem;
+          border: none;
+          outline: none;
+          resize: none;
+          box-sizing: border-box;
+
+          &::placeholder {
+            color: #bbbbbb;
+            font-style: italic;
+          }
+
+          &:focus {
+            background-color: #333333;
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  .taskbar {
+    height: 6.5vh;
+    width: 100vw;
+    background-color: $pri;
+    bottom: 0%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.75rem;
+    backdrop-filter: blur(8px);
+
+    img {
+      transition: all 0.2s ease;
+      height: 3.3rem;
+
+      &:hover {
+        background-color: #2c2b2b;
+        border-radius: 0.5rem;
+        transform: scale(1.1);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+      }
+    }
+  }
+}
